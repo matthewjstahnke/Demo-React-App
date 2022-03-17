@@ -10,9 +10,10 @@ const PokemonsContainer = () => {
   useEffect(() => {
     fetchPokemons();
   },[pointer]);
-
- 
+  
+  
   const fetchPokemons = () => {
+
     fetch(pointer)
     .then((res) => res.json())
     .then((data) => {

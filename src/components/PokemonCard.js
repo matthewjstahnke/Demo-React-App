@@ -14,31 +14,38 @@ const PokemonCard = ( {pokemon} ) => {
   const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonIndex}.png`
   const pokemonText = `https://pokeapi.co/api/v2/pokemon-species/${pokemonIndex}/`
   const [pokemonData, setPokemonData] = useState([])
-  const { flavor } = pokemonData
+  const [loading, setLoading] = useState(true);
 
   const fetchPokemonData = () => {
     fetch(pokemonText)
     .then((res) => res.json())
-    .then((data) => {
-      
-      setPokemonData([...pokemonData, ...data.flavor_text_entries]);
+    .then((data) => { 
+      setPokemonData([...pokemonData, ...data]);
+        setLoading(false);
     })
+    
+
   };
 
   useEffect(() => {
     fetchPokemonData();
   },[]);
+  //const { color } = pokemonData.color.name
+  //const { flavor } = pokemonData.flavor_text_entries[1].flavor_text
 
 
   return (
-    <Card sx={{ maxWidth: 200 }} >
+    
+
+
+      <Card sx={{ maxWidth: 200 }} >
       <CardActionArea>
         <CardMedia
           component="img"
           height="200"
           image={imageUrl}
           alt={name}
-        />
+          />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {name
@@ -48,11 +55,17 @@ const PokemonCard = ( {pokemon} ) => {
               .join(' ')}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica
+          {loading ? (
+            <p>Loading</p>
+              ) : (  
+            <p>place holder</p>  )
+          }
+                          
           </Typography>
         </CardContent>
       </CardActionArea>
     </Card>
+
   )
 }
 
