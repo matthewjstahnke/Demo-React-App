@@ -1,7 +1,8 @@
 import './App.css';
 import Nav from './components/Nav';
 import PokemonsContainer from './components/PokemonsContainer';
-import Typography from '@mui/material/Typography';
+import { Routes, Route } from 'react-router-dom'
+import Home from './components/Home';
 
 
 function App() {
@@ -9,7 +10,10 @@ function App() {
     <div className="App">
       <Nav />
       <h1>PokeDex</h1>
-      <PokemonsContainer />
+      <Routes>
+       <Route path="/pokemon" element={PokemonsContainer} />
+       <Route path="/" element={Home} />
+      </Routes>
     </div>
   );
 }
