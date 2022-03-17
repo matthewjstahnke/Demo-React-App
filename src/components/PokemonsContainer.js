@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import PokemonIndex from './PokemonIndex';
+import PokemonCard from './PokemonCard';
 import Grid from '@mui/material/Grid';
 
 const PokemonsContainer = () => {
@@ -21,10 +21,9 @@ const PokemonsContainer = () => {
     })
   };
   
-  console.log("after fetch", pokemons);
   return (
     <Grid container spacing={3} rowSpacing={1}>
-      {pokemons.map(pokemon => <PokemonIndex pokemon={pokemon} />)}
+      {pokemons.map(pokemon => <PokemonCard pokemon={pokemon} />)}
     </Grid>
   );
 }
