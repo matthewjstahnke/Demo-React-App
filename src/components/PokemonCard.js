@@ -4,32 +4,36 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
 import { CardActionArea } from '@mui/material';
 
 
 
 const PokemonCard = ( {pokemon} ) => {
   const { name, url } = pokemon;
-  const pokemonIndex = url.split('/')[url.split('/').length - 2];
-  const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonIndex}.png`
-  const pokemonText = `https://pokeapi.co/api/v2/pokemon-species/${pokemonIndex}/`
-  const [pokemonData, setPokemonData] = useState([])
-  const [loading, setLoading] = useState(true);
+  const id = url.split('/')[url.split('/').length - 2];
+  const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+  // const pokemonText = `https://pokeapi.co/api/v2/pokemon-species/${id}/`
+  // const [pokemonData, setPokemonData] = useState([pokemon])
+  const [loading, setLoading] = useState(false);
 
-  const fetchPokemonData = () => {
-    fetch(pokemonText)
-    .then((res) => res.json())
-    .then((data) => { 
-      setPokemonData([...pokemonData, ...data]);
-        setLoading(false);
-    })
+
+  
+  // const fetchPokemonData = () => {
+  //   fetch(pokemonText)
+  //   .then((res) => res.json())
+  //   .then((data) => { 
+  //     setPokemonData([...pokemonData, ...data]);
+  //     setLoading(false);
+  //     console.log("working?")
+  //   })
     
-
-  };
-
-  useEffect(() => {
-    fetchPokemonData();
-  },[]);
+    
+  // };
+  
+  // useEffect(() => {
+  //   fetchPokemonData();
+  // },[]);
   //const { color } = pokemonData.color.name
   //const { flavor } = pokemonData.flavor_text_entries[1].flavor_text
 
@@ -38,8 +42,8 @@ const PokemonCard = ( {pokemon} ) => {
     
 
 
-      <Card sx={{ maxWidth: 200 }} >
-      <CardActionArea>
+      <Card sx={{ maxWidth: 200 }} onClick={<Link to={`/pokemon/${id}`}></Link>} >
+      <CardActionArea >
         <CardMedia
           component="img"
           height="200"

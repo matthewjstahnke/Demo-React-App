@@ -17,11 +17,20 @@ const PokemonsContainer = () => {
     fetch(pointer)
     .then((res) => res.json())
     .then((data) => {
-      setPokemons([...pokemons, ...data.results]);
-      setPointer(data.next);
+      function createPokemonOject(result){
+        result.forEach( async (pokemon) => {
+          fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data)
+            setPokemons([...pokemons, ...data])})
+          })         
+        }
+        createPokemonOject(data.results)      
+        setPointer(data.next);
     })
   };
-  
+
   return (
     <Grid container spacing={3} rowSpacing={1}>
       {pokemons.map(pokemon => <PokemonCard pokemon={pokemon} />)}
