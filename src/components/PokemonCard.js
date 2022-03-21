@@ -13,8 +13,8 @@ const PokemonCard = ( {pokemon} ) => {
   const { name, url } = pokemon;
   const id = url.split('/')[url.split('/').length - 2];
   const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
-  // const pokemonText = `https://pokeapi.co/api/v2/pokemon-species/${id}/`
-  // const [pokemonData, setPokemonData] = useState([pokemon])
+  const pokemonText = `https://pokeapi.co/api/v2/pokemon-species/${id}/`
+  const [pokemonData, setPokemonData] = useState([])
   const [loading, setLoading] = useState(false);
 
 
@@ -23,13 +23,14 @@ const PokemonCard = ( {pokemon} ) => {
   //   fetch(pokemonText)
   //   .then((res) => res.json())
   //   .then((data) => { 
-  //     setPokemonData([...pokemonData, ...data]);
+  //     setPokemonData(data);
   //     setLoading(false);
   //     console.log("working?")
   //   })
     
     
   // };
+  // console.log(pokemonData)
   
   // useEffect(() => {
   //   fetchPokemonData();

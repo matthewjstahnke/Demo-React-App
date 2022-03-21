@@ -5,31 +5,29 @@ import Grid from '@mui/material/Grid';
 const PokemonsContainer = () => {
 
   const [pokemons,setPokemons] = useState([]);
-  const [pointer,setPointer] = useState("https://pokeapi.co/api/v2/pokemon/");
+  const pokemonLimit = 151;
 
-  useEffect(() => {
-    fetchPokemons();
-  },[pointer]);
-  
-  
-  const fetchPokemons = () => {
+  const fetchPokemon = async () => {
+    for(let i=1; i<=pokemonLimit; i++) {
+      await getPokemon(i);
+    }
+  }
 
-    fetch(pointer)
+  const getPokemon = (id) => {
+    
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
     .then((res) => res.json())
     .then((data) => {
-      function createPokemonOject(result){
-        result.forEach( async (pokemon) => {
-          fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data)
-            setPokemons([...pokemons, ...data])})
-          })         
-        }
-        createPokemonOject(data.results)      
-        setPointer(data.next);
+      
+      setPokemons([...pokemons, ...data]);
     })
   };
+  console.log(pokemons)
+
+  useEffect(() => {
+    fetchPokemon();
+  },[]);
+
 
   return (
     <Grid container spacing={3} rowSpacing={1}>
