@@ -4,34 +4,25 @@ import Grid from '@mui/material/Grid';
 
 const PokemonsContainer = () => {
 
-  const [pokemons,setPokemons] = useState([]);
-  const pokemonLimit = 151;
+  const [pokemon,setPokemon] = useState([]);
+  const [pointer, setPointer] = useState("https://pokeapi.co/api/v2/pokemon?limit=15");
 
-  const fetchPokemon = async () => {
-    for(let i=1; i<=pokemonLimit; i++) {
-      await getPokemon(i);
-    }
-  }
+  const fetchPokemon = () => {
 
-  const getPokemon = (id) => {
-    
-    fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
+    fetch(pointer)
     .then((res) => res.json())
     .then((data) => {
-      
-      setPokemons([...pokemons, ...data]);
+      setPokemon([...pokemon, ...data.results]);
     })
   };
-  console.log(pokemons)
-
+  
   useEffect(() => {
     fetchPokemon();
   },[]);
 
-
   return (
     <Grid container spacing={3} rowSpacing={1}>
-      {pokemons.map(pokemon => <PokemonCard pokemon={pokemon} />)}
+      {pokemon.map(pokemon => <PokemonCard pokemon={pokemon} />)}
     </Grid>
   );
 }

@@ -1,8 +1,33 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
+import { Link, useLocation } from 'react-router-dom'
 
-const Pokemon = () => {
+
+const Pokemon = ({state}) => {
+  const [pkmnData, setPkmnData] = useState([]) 
+  const location = useLocation()
+  const pkmnUrl = location.state.url.url
+
+
+  
+  
+  useEffect(() => {
+    fetchPkmnData(pkmnUrl)
+  },[]);
+  
+  const fetchPkmnData = (pkmnUrl) => {
+    fetch(pkmnUrl)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("data", data)
+      setPkmnData(data);
+    })
+  };
+  
+  console.log("working", pkmnData)
+  
+  
   return (
-    <div>Pokemon</div>
+    <div>{pkmnUrl}</div>
   )
 }
 

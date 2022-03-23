@@ -6,71 +6,46 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import { CardActionArea } from '@mui/material';
-
-
+import Button from '@mui/material/Button';
 
 const PokemonCard = ( {pokemon} ) => {
   const { name, url } = pokemon;
   const id = url.split('/')[url.split('/').length - 2];
   const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
-  const pokemonText = `https://pokeapi.co/api/v2/pokemon-species/${id}/`
-  const [pokemonData, setPokemonData] = useState([])
-  const [loading, setLoading] = useState(false);
-
-
   
-  // const fetchPokemonData = () => {
-  //   fetch(pokemonText)
+
+  // const clickHandler = (e) =>{
+  //   console.log(e.target.alt)
+  //   fetch(e.target.alt)
   //   .then((res) => res.json())
-  //   .then((data) => { 
-  //     setPokemonData(data);
-  //     setLoading(false);
-  //     console.log("working?")
+  //   .then((data) => {
+  //     setPkmnData([data]);
   //   })
-    
-    
-  // };
-  // console.log(pokemonData)
-  
-  // useEffect(() => {
-  //   fetchPokemonData();
-  // },[]);
-  //const { color } = pokemonData.color.name
-  //const { flavor } = pokemonData.flavor_text_entries[1].flavor_text
-
+  // }
 
   return (
-    
-
-
-      <Card sx={{ maxWidth: 200 }} onClick={<Link to={`/pokemon/${id}`}></Link>} >
+      <Card sx={{ maxWidth: 200 }}  >
       <CardActionArea >
         <CardMedia
           component="img"
           height="200"
           image={imageUrl}
-          alt={name}
+          alt={url}
           />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {name
+          <Typography gutterBottom variant="h5" component="div" key={url}>
+            { name
               .toLowerCase()
               .split(" ")
               .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
               .join(' ')}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-          {loading ? (
-            <p>Loading</p>
-              ) : (  
-            <p>place holder</p>  )
-          }
-                          
-          </Typography>
+          <Button variant="outlined" size="small" >
+          <Link to={`/${id}`} state={{from:"pokemon container", url }} >More details</Link>
+        </Button>
         </CardContent>
       </CardActionArea>
     </Card>
-
   )
 }
 
