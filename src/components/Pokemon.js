@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import { Link, useLocation } from 'react-router-dom'
+import PokemonView from './PokemonView';
 
 
 const Pokemon = ({state}) => {
   const [pkmnData, setPkmnData] = useState([]) 
   const location = useLocation()
-  const pkmnUrl = location.state.url.url
+  const pkmnUrl = location.state.url
 
-
-  
+  console.log(pkmnUrl)
   
   useEffect(() => {
     fetchPkmnData(pkmnUrl)
@@ -23,11 +23,11 @@ const Pokemon = ({state}) => {
     })
   };
   
-  console.log("working", pkmnData)
+  console.log("Data in PKMN", pkmnData)
   
   
   return (
-    <div>{pkmnUrl}</div>
+    <PokemonView data={pkmnData}/>
   )
 }
 
