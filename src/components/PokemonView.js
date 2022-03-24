@@ -10,7 +10,7 @@ const PokemonView = ({data}) => {
     <>
     <div>PokemonView</div>
     <img src={imageUrl} alt={name}></img><br></br>
-    {name.toUpperCase()} <br></br>Pokedex #{id} 
+    {name} <br></br>Pokedex #{id} 
     <br></br>
     Weight : {weight}
     </>
