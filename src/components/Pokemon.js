@@ -8,10 +8,11 @@ const Pokemon = ({state}) => {
   const location = useLocation()
   const pkmnUrl = location.state.url
 
-  console.log(pkmnUrl)
+  console.log("Top of pokemon",pkmnUrl)
   
   useEffect(() => {
     fetchPkmnData(pkmnUrl)
+    console.log("Use Effect",pkmnUrl)
   },[]);
   
   const fetchPkmnData = (pkmnUrl) => {
@@ -19,7 +20,7 @@ const Pokemon = ({state}) => {
     .then((res) => res.json())
     .then((data) => {
       console.log("data", data)
-      setPkmnData(data);
+      setPkmnData([data]);
     })
   };
   
@@ -27,7 +28,26 @@ const Pokemon = ({state}) => {
   
   
   return (
-    <PokemonView data={pkmnData}/>
+    <>
+    {pkmnData.map((data) =>
+    <PokemonView 
+    id={data.id}
+    type1={data.types[0].type.name}
+    imageDW={data.sprites.other.dream_world.front_default}
+    imageD={data.sprites.front_default}
+    hp={data.stats[0].base_stat}
+    attack={data.stats[1].base_stat}
+    defense={data.stats[2].base_stat}
+    sa={data.stats[3].base_stat}
+    sd={data.stats[4].base_stat}
+    speed={data.stats[5].base_stat}
+    abilty1={data.abilities[0].ability.name}
+    name={data.species.name}
+    />
+    )}
+
+
+    </>
   )
 }
 

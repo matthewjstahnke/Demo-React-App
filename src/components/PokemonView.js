@@ -1,18 +1,23 @@
 import React from 'react'
-
-const PokemonView = ({data}) => {
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+const PokemonView = (data) => {
   console.log("in view", data)
-  const { name, url, id , stats, weight, types} = data;
-  const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
-
-
+  const { id, name, imageDW, type1} = data;
   return (
     <>
-    <div>PokemonView</div>
-    <img src={imageUrl} alt={name}></img><br></br>
-    {name} <br></br>Pokedex #{id} 
+    <Typography gutterBottom variant="h5" component="div">
+		  {name.toUpperCase()} <br></br>Pokedex #{id}
+    </Typography>
+    <CardMedia           
+      component="img"
+      height="50"
+      width="25"
+      image={imageDW}
+      alt={name}/>
     <br></br>
-    Weight : {weight}
+    <br></br>
+    <p>Type : {type1.toUpperCase()} </p>
     </>
   )
 }

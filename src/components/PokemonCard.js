@@ -40,9 +40,10 @@ const PokemonCard = ( {pokemon} ) => {
               .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
               .join(' ')}
           </Typography>
-          <Button variant="outlined" size="small" >
+
+
           <Link to={`/${id}`} state={{from:"pokemon container", url }} >More details</Link>
-        </Button>
+
         </CardContent>
       </CardActionArea>
     </Card>
