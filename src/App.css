@@ -58,3 +58,33 @@
 .nav li a:hover {
   background-color: #111;
 }
+
+.pkmnImg div{
+  align-items: left;
+}
+
+.pkmnImg img{
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+
+}
+
+.statBox{
+  padding: 10px;
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  align-items: auto;
+  text-align: auto;
+  margin-left: auto;
+  margin-right: auto;
+  float: auto;
+
+}
+
+.smallImg{
+  align-items: right;
+  border: 1px solid #ddd;
+}

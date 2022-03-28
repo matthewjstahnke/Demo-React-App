@@ -26,18 +26,28 @@ const PokemonView = (data) => {
 
   return (
     <>
-    <Typography gutterBottom variant="h5" component="div">
+    <div>
+
+    <Typography gutterBottom variant="h5" component="div" align="center">
 		  {name.toUpperCase()} <br></br>Pokedex #{id}
-    </Typography>
-    <img          
+    <div className="pkmnImg">
+
+    <img 
+               
       src={imageDW}
       alt={name}/>
-    <br></br>
-    <Typography variant="body2" color="text.secondary">
+    
+    </div>
+      </Typography>
+    </div>
+    <div className="statBox">
+    <Typography variant="body2" color="text.secondary"  align="left">
       Type : {type1.toUpperCase()} 
       <br />
-      <img src= {imageD}/>
-      _________________________________________________________
+      <div>
+      <img src= {imageD} />
+      </div>
+      {/* _________________________________________________________ */}
       Hit Points: {hp}<BorderLinearProgress variant="determinate" value={statRange(hp)} />
       Attack: {attack}<BorderLinearProgress variant="determinate" value={statRange(attack)} />
       Defense: {defense}<BorderLinearProgress variant="determinate" value={statRange(defense)} />
@@ -45,10 +55,11 @@ const PokemonView = (data) => {
       Special Defense: {sd}<BorderLinearProgress variant="determinate" value={statRange(sd)} />
       Speed: {speed}<BorderLinearProgress variant="determinate" value={statRange(speed)} />
       
-      _________________________________________________________
+      {/* _________________________________________________________ */}
       
 
     </Typography>
+    </div>
     </>
   )
 }
