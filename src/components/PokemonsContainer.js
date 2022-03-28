@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 const PokemonsContainer = () => {
 
   const [pokemon,setPokemon] = useState([]);
-  const [pointer, setPointer] = useState("https://pokeapi.co/api/v2/pokemon?limit=15");
+  const [pointer, setPointer] = useState("https://pokeapi.co/api/v2/pokemon?limit=252");
 
   const fetchPokemon = () => {
 
