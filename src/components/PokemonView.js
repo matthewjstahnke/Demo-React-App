@@ -34,18 +34,18 @@ const PokemonView = (data) => {
       alt={name}/>
     <br></br>
     <Typography variant="body2" color="text.secondary">
-      <p>Type : {type1.toUpperCase()} </p>
+      Type : {type1.toUpperCase()} 
       <br />
       <img src= {imageD}/>
-      <h5>_________________________________________________________</h5>
-      <p>Hit Points: {hp}<BorderLinearProgress variant="determinate" value={statRange(hp)} /></p>
-      <p>Attack: {attack}<BorderLinearProgress variant="determinate" value={statRange(attack)} /></p>
-      <p>Defense: {defense}<BorderLinearProgress variant="determinate" value={statRange(defense)} /></p>
-      <p>Special Attack: {sa}<BorderLinearProgress variant="determinate" value={statRange(sa)} /></p>
-      <p>Special Defense: {sd}<BorderLinearProgress variant="determinate" value={statRange(sd)} /></p>
-      <p>Speed: {speed}<BorderLinearProgress variant="determinate" value={statRange(speed)} /></p>
+      _________________________________________________________
+      Hit Points: {hp}<BorderLinearProgress variant="determinate" value={statRange(hp)} />
+      Attack: {attack}<BorderLinearProgress variant="determinate" value={statRange(attack)} />
+      Defense: {defense}<BorderLinearProgress variant="determinate" value={statRange(defense)} />
+      Special Attack: {sa}<BorderLinearProgress variant="determinate" value={statRange(sa)} />
+      Special Defense: {sd}<BorderLinearProgress variant="determinate" value={statRange(sd)} />
+      Speed: {speed}<BorderLinearProgress variant="determinate" value={statRange(speed)} />
       
-      <h5>_________________________________________________________</h5>
+      _________________________________________________________
       
 
     </Typography>

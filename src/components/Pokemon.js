@@ -30,7 +30,7 @@ const Pokemon = ({state}) => {
   return (
     <>
     {pkmnData.map((data) =>
-    <PokemonView 
+    <PokemonView key={data.id}
     id={data.id}
     type1={data.types[0].type.name}
     imageDW={data.sprites.other.dream_world.front_default}
