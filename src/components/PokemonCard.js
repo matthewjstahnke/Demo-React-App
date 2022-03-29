@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import { CardActionArea } from '@mui/material';
 import Button from '@mui/material/Button';
+import InfoIcon from '@mui/icons-material/Info';
 
 const PokemonCard = ( {pokemon} ) => {
   const { name, url } = pokemon;
@@ -41,8 +42,9 @@ const PokemonCard = ( {pokemon} ) => {
               .join(' ')}
           </Typography>
 
-
-          <Link to={`/${id}`} state={{from:"pokemon container", url }} >More details</Link>
+          <Typography variant="body2" color="text.secondary">
+          <Link to={`/${id}`} state={{from:"pokemon container", url }} ><InfoIcon /></Link>
+          </Typography>
 
         </CardContent>
       </CardActionArea>

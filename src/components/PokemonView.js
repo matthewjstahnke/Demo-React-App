@@ -43,10 +43,12 @@ const PokemonView = (data) => {
     <div className="statBox">
     <Typography variant="body2" color="text.secondary"  align="left">
       Type : {type1.toUpperCase()} 
+    </Typography>
       <br />
-      <div>
-      <img src= {imageD} />
+      <div className="smallImg">
+      <img src= {imageD}  />
       </div>
+      <Typography variant="body2" color="text.secondary"  align="left">
       {/* _________________________________________________________ */}
       Hit Points: {hp}<BorderLinearProgress variant="determinate" value={statRange(hp)} />
       Attack: {attack}<BorderLinearProgress variant="determinate" value={statRange(attack)} />

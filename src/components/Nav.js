@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import GamesIcon from '@mui/icons-material/Games';
+import ListIcon from '@mui/icons-material/List';
 
 
 const Nav = () => {
@@ -7,10 +9,8 @@ const Nav = () => {
 <div className="nav">
 
 <ul>
-  <li><Link to="/">Pokedex</Link></li>
-  <li><a href="#">Types</a></li>
-  <li><a href="#">Games</a></li>
-  <li><a href="#">About</a></li>
+  <li><Link to="/">Pokedex <ListIcon /></Link></li>
+  <li><a href="#">Games <GamesIcon /></a></li>
 </ul>
 
 </div>
