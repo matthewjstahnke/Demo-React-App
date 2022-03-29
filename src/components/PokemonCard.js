@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { CardActionArea } from '@mui/material';
 import Button from '@mui/material/Button';
 import InfoIcon from '@mui/icons-material/Info';
+import Grid from '@mui/material/Grid';
 
 const PokemonCard = ( {pokemon} ) => {
   const { name, url } = pokemon;
@@ -25,21 +26,21 @@ const PokemonCard = ( {pokemon} ) => {
   // }
 
   return (
-      <Card sx={{ maxWidth: 200 }}  >
+      <Card sx={{ maxWidth: 165 }}  >
       <CardActionArea >
         <CardMedia
           component="img"
-          height="200"
+          height="165"
           image={imageUrl}
           alt={url}
           />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div" key={url}>
+          <Typography gutterBottom variant="h6" component="div" key={url}>
             { name
               .toLowerCase()
               .split(" ")
               .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
-              .join(' ')}
+              .join(' ')} 
           </Typography>
 
           <Typography variant="body2" color="text.secondary">
