@@ -35,6 +35,7 @@ const Pokemon = ({state}) => {
     type1={data.types[0].type.name}
     imageDW={data.sprites.other.dream_world.front_default}
     imageD={data.sprites.front_default}
+    imageB={data.sprites.back_default}
     hp={data.stats[0].base_stat}
     attack={data.stats[1].base_stat}
     defense={data.stats[2].base_stat}
