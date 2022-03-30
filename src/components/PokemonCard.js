@@ -26,27 +26,25 @@ const PokemonCard = ( {pokemon} ) => {
   // }
 
   return (
-      <Card sx={{ maxWidth: 165 }}  >
-      <CardActionArea >
+      <Card sx={{ maxWidth: 150 }}  >
+      <CardActionArea component={Link} to={`/${id}`} state={{from:"pokemon container", url }} >
         <CardMedia
           component="img"
-          height="165"
+          height="150"
           image={imageUrl}
           alt={url}
           />
         <CardContent>
-          <Typography gutterBottom variant="h6" component="div" key={url}>
-            { name
+          <Typography gutterBottom variant="h6" component="div" key={url} align='center'>
+             { name
               .toLowerCase()
               .split(" ")
               .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
               .join(' ')} 
           </Typography>
 
-          <Typography variant="body2" color="text.secondary">
-          <Link to={`/${id}`} state={{from:"pokemon container", url }} ><InfoIcon /></Link>
+          <Typography variant="body2" color="text.secondary" align='center'>
           </Typography>
-
         </CardContent>
       </CardActionArea>
     </Card>
