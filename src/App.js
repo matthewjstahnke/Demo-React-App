@@ -9,7 +9,6 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <h1>PokeDex</h1>
       <Routes>
        <Route path="/:id" element={<Pokemon />} />
        <Route path="/" element={<PokemonsContainer />} />
