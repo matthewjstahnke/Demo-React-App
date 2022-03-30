@@ -21,10 +21,9 @@ const PokemonsContainer = () => {
   },[]);
 
   return (
-    <Grid container spacing={1} rowSpacing={1} columnSpacing={1}>
-
-        {pokemon.map(pokemon => <PokemonCard key={pokemon.name} pokemon={pokemon} />)}
-
+    <Grid container spacing={3} rowSpacing={3} columnSpacing={3}>
+        {pokemon.map(pokemon => <Grid item xs="auto"> 
+        <PokemonCard key={pokemon.name} pokemon={pokemon}  /> </Grid>)}
     </Grid>
   );
 }
