@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 
 const PokemonView = (data) => {
   console.log("in view", data)
-  const { id, name, imageDW, imageD, type1, hp, attack, sa, sd, speed, defense} = data;
+  const { id, name, imageDW, imageD, imageB, type1, hp, attack, sa, sd, speed, defense} = data;
 
   const statRange = (value) => ((value - 0) * 100) / (256 - 0);
 
@@ -31,12 +31,9 @@ const PokemonView = (data) => {
     <Typography gutterBottom variant="h5" component="div" align="center">
 		  {name.toUpperCase()} <br></br>Pokedex #{id}
     <div className="pkmnImg">
-
-    <img 
-               
+    <img            
       src={imageDW}
       alt={name}/>
-    
     </div>
       </Typography>
     </div>
@@ -46,7 +43,9 @@ const PokemonView = (data) => {
     </Typography>
       <br />
       <div className="smallImg">
-      <img src= {imageD}  />
+      <Box align="center">
+        <img src= {imageD} className="imgFront" /> <img src= {imageB} className="imgBack" />
+      </Box>
       </div>
       <Typography variant="body2" color="text.secondary"  align="left">
       {/* _________________________________________________________ */}
