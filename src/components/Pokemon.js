@@ -33,6 +33,7 @@ const Pokemon = ({state}) => {
     <PokemonView key={data.id}
     id={data.id}
     type1={data.types[0].type.name}
+    type2={data.types[1] ? data.types[1].type.name : undefined}
     imageDW={data.sprites.other.dream_world.front_default}
     imageD={data.sprites.front_default}
     imageB={data.sprites.back_default}

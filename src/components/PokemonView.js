@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 
 const PokemonView = (data) => {
   console.log("in view", data)
-  const { id, name, imageDW, imageD, imageB, type1, hp, attack, sa, sd, speed, defense} = data;
+  const { id, name, imageDW, imageD, imageB, type1, type2, hp, attack, sa, sd, speed, defense} = data;
 
   const statRange = (value) => ((value - 0) * 100) / (256 - 0);
 
@@ -38,8 +38,8 @@ const PokemonView = (data) => {
       </Typography>
     </div>
     <div className="statBox">
-    <Typography variant="body2" color="text.secondary"  align="left">
-      Type : {type1.toUpperCase()} 
+    <Typography variant="body2" color="text.secondary" fontWeight="bold"  align="left">
+      Type 1: {type1} - Type 2: {type2 ? type2 : "n/a"}
     </Typography>
       <br />
       <div className="smallImg">
@@ -47,7 +47,7 @@ const PokemonView = (data) => {
         <img src= {imageD} className="imgFront" /> <img src= {imageB} className="imgBack" />
       </Box>
       </div>
-      <Typography variant="body2" color="text.secondary"  align="left">
+      <Typography variant="body2" color="text.secondary" fontWeight="bold" align="left">
       {/* _________________________________________________________ */}
       Hit Points: {hp}<BorderLinearProgress variant="determinate" value={statRange(hp)} />
       Attack: {attack}<BorderLinearProgress variant="determinate" value={statRange(attack)} />
