@@ -37,6 +37,7 @@ const Pokemon = ({state}) => {
     imageDW={data.sprites.other.dream_world.front_default}
     imageD={data.sprites.front_default}
     imageB={data.sprites.back_default}
+    imageOG={data.sprites.versions.generation}
     hp={data.stats[0].base_stat}
     attack={data.stats[1].base_stat}
     defense={data.stats[2].base_stat}
