@@ -49,7 +49,7 @@
 
 .statBox{
   padding: 10px;
-  width: 250px;
+  width: 200px;
   border: 1px solid #ddd;
   border-radius: 4px;
   align-items: auto;
@@ -60,7 +60,15 @@
 
 }
 
-.smallImg{
-  align-items: left;
+/* .smallImg{
+  align-items: right;
   border: 1px solid #ddd;
 }
+
+.imgFront {
+  align-items: left;
+}
+
+.imgBack {
+  align-items: right;
+} */

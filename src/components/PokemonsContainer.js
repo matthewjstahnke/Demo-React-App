@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 const PokemonsContainer = () => {
 
   const [pokemon,setPokemon] = useState([]);
-  const [pointer, setPointer] = useState("https://pokeapi.co/api/v2/pokemon?limit=252");
+  const [pointer, setPointer] = useState("https://pokeapi.co/api/v2/pokemon?limit=251");
 
   const fetchPokemon = () => {
 
