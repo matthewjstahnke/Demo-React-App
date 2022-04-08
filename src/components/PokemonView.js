@@ -1,4 +1,5 @@
 import React from 'react'
+import TypeSwitch from './TypeSwitch'
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
@@ -41,7 +42,7 @@ const PokemonView = (data) => {
     </div>
     <div className="statBox">
     <Typography variant="body2" color="text.secondary" fontWeight="bold"  align="left">
-      Type 1: {type1} <br></br>Type 2: {type2 ? type2 : "n/a"}
+      Type 1: <TypeSwitch type={type1}/> <br></br>Type 2: {type2 ? type2 : "n/a"}
     </Typography>
       <br />
       <div className="smallImg">
@@ -69,6 +70,8 @@ const PokemonView = (data) => {
       src={urlOGB}
       alt={name}/>
     </div>
+
+    <TypeSwitch type={type1}/>
     </>
   )
 }
