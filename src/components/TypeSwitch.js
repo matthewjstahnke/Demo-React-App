@@ -16,8 +16,9 @@ const TypeSwitch = (type) => {
     switch(type) {
       case 'grass':
         return 'https://www.serebii.net/pokedex-bw/type/grass.gif';
-        // default:
-        //   return 'https://www.serebii.net/pokedex-rs/type/normal.gif';
+        
+         default:
+           return 'https://www.serebii.net/pokedex-rs/type/normal.gif';
         }
       
       
